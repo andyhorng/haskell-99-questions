@@ -18,3 +18,12 @@ combinations 1 xs = [[x] | x <- xs]
 combinations n list@(x:xs) = 
     concat [map (e:) (combinations (n-1) (drop (ix+1) list)) | (ix, e) <- indexed]
     where indexed = zip [0..((length xs) - 1)] list
+
+-- good solution from website
+
+combinations' :: Int -> [a] -> [[a]]
+combinations' 0 _ = [[]]
+combinations' _ [] = []
+combinations' n (x:xs) = (map (x:) (combinations (n-1) xs)) ++ (combinations n xs)
+
+
