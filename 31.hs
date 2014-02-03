@@ -16,4 +16,4 @@ isPrime :: Int -> Bool
 isPrime 2 = True
 isPrime 3 = True
 isPrime n = 
-    not $ any (\i -> (n `mod` i) == 0) [x | x <- [2..n], (x*x) <= n]
+    not $ any ((== 0).mod n) [x | x <- [2..n], (x*x) <= n]
